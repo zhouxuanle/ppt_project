@@ -18,10 +18,14 @@ def plot_house_prices():
     # draw the data points as a scatter so they are not connected
     plt.scatter(years, prices, marker='o', color='tab:blue', s=35, label='Data')
 
+<<<<<<< HEAD
     # best-fit trend line (for comparison) — show only this line (no illustrative lines)
     # To keep the plotted line exactly the same but show a small intercept value
     # in the label, express the equation around a reference year x0 (use the mean year).
     # show slope and a small intercept-like value (y0 = y at mean year) in the label
+=======
+
+>>>>>>> 172255f792013a29c4d985c79c42d70cbf2bd1f3
     x0 = int(round(years.mean()))
     y0 = slope * x0 + intercept  # value of best-fit at mean year
     plt.plot(years, trend_line, color='tab:orange', linewidth=2,
@@ -91,7 +95,11 @@ def plot_house_prices():
     # Always plot all three lines as points, even if their MSEs overlap
     for m, b, name, color, style in lines:
         mse = np.mean((y - (m * x + b)) ** 2)
+<<<<<<< HEAD
         plt.scatter(m, mse, color=color, label=f"{name} (slope={m:.4f}, MSE={mse:.2f})", zorder=5)
+=======
+        plt.scatter(m, mse, color=color, label=f"{name} (slope={m:.4f})", zorder=5)
+>>>>>>> 172255f792013a29c4d985c79c42d70cbf2bd1f3
         plt.annotate(name, (m, mse), textcoords="offset points", xytext=(0,8), ha='center', fontsize=8, color=color)
     plt.xlabel('Slope')
     plt.ylabel('Mean Squared Error')
@@ -108,6 +116,7 @@ def plot_house_prices():
     x_mean = x.mean()
     y_mean = y.mean()
 
+<<<<<<< HEAD
     # Use the original intercepts from our first plot to show their true MSE values
     # (This is correct, but let's add a debug print to confirm values)
     print(f"Best fit intercept: {intercept:.4f}, New line intercept: {intercept_new:.4f}, Smaller slope intercept: {intercept_small:.4f}")
@@ -115,6 +124,9 @@ def plot_house_prices():
     print(f"Best fit line: y = {slope:.4f}x + {intercept:.4f}")
     print(f"New line: y = {slope_new:.4f}x + {intercept_new:.4f}")
     print(f"Smaller slope line: y = {slope_small:.4f}x + {intercept_small:.4f}")
+=======
+
+>>>>>>> 172255f792013a29c4d985c79c42d70cbf2bd1f3
 
     # For the 3D plot, use the same intercept (best-fit) for all lines so only the best-fit line is at the minimum
     lines_3d = [
@@ -157,7 +169,11 @@ def plot_house_prices():
         preds = m * x + b
         mse_val = np.mean((y - preds) ** 2)
         print(f"{name}: slope={m:.4f}, intercept={b:.4f}, MSE={mse_val:.4f}")
+<<<<<<< HEAD
         ax.scatter(m, b, mse_val, color=color, s=100, marker='o', label=f"{name} (slope={m:.4f}, MSE={mse_val:.2f})", zorder=10)
+=======
+        ax.scatter(m, b, mse_val, color=color, s=100, marker='o', label=f"{name} (slope={m:.4f})", zorder=10)
+>>>>>>> 172255f792013a29c4d985c79c42d70cbf2bd1f3
     ax.legend()
     plt.tight_layout()
     mse3d_path = os.path.join(out_dir, 'mse_lines_3d.png')
